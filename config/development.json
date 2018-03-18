@@ -1,5 +1,5 @@
 {
-    "port": 3002,
+    "port": 3003,
     "postgres": {
         "user": "postgres",
         "password": "postgres",

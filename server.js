@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const MatchService = require('./lib/service');
 
 const matchService = new MatchService();
-const server = express(bodyParser.json());
+const server = express();
+
+server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
     matchService.getAll()
@@ -17,6 +19,16 @@ server.get('/', (req, res) => {
                 message: 'an unknown error occurred',
                 error
             });
+        });
+});
+
+server.post('/', (req, res) => {
+    matchService.create(req.body)
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((error) => {
+            res.send(error);
         });
 });
 
