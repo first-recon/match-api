@@ -28,7 +28,11 @@ server.post('/', (req, res) => {
             res.send(result);
         })
         .catch((error) => {
-            res.send(error);
+            console.error(error);
+            res.status(500).send({
+                name: 'DbAddOpError',
+                message: 'An error occurred adding this match, please try again later.'
+            });
         });
 });
 
