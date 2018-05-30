@@ -24,6 +24,7 @@ server.get('/', (req, res) => {
 });
 
 server.post('/', (req, res) => {
+    console.log(req.body);
     matchService.create(req.body)
         .then((result) => {
             res.send(result);
