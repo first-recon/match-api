@@ -7,6 +7,7 @@ const matchService = new MatchService();
 const server = express();
 
 server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ encoded: true }));
 
 server.get('/', (req, res) => {
     matchService.getAll()
