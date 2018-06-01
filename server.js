@@ -12,21 +12,21 @@ server.use(bodyParser.urlencoded({ encoded: true }));
 server.get('/', (req, res) => {
     matchService.getAll()
         .then((results) => {
-            res.send(results);
+            res.send({ success: true, results });
         })
         .catch((error) => {
+            console.error(error);
             res.status(500).send({
                 success: false,
-                message: 'an unknown error occurred',
-                error
+                message: 'an unknown error occurred'
             });
         });
 });
 
 server.post('/', (req, res) => {
     matchService.create(req.body)
-        .then((result) => {
-            res.send(result);
+        .then((results) => {
+            res.send({ success: true, results });
         })
         .catch((error) => {
             console.error(error);
