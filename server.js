@@ -6,11 +6,11 @@ const MatchService = require('./lib/service');
 const matchService = new MatchService();
 const server = express();
 
-server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ encoded: true }));
+server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
-    matchService.getAll()
+    matchService.get(req.query)
         .then((results) => {
             res.send({ success: true, results });
         })
