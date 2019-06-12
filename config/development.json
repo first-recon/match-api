@@ -4,7 +4,7 @@
         "user": "postgres",
         "password": "postgres",
         "database": "postgres",
-        "schema": "public",
+        "schema": "MATCHES",
         "table": "matches",
         "host": "0.0.0.0",
         "port": 5432
